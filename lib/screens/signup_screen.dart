@@ -32,7 +32,7 @@ class _SignupScreenState extends State<SignupScreen> {
       );
 
       if (res) {
-        Navigator.pushNamed(context, HomeScreen.routeName);
+        Navigator.of(context).pushReplacementNamed(HomeScreen.routeName);
       }
     }
 

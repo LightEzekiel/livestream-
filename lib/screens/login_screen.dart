@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:live_stream_app/resources/auth_mehtod.dart';
+import 'package:live_stream_app/screens/home_screen.dart';
 import 'package:live_stream_app/widgets/custom_button.dart';
 import 'package:live_stream_app/widgets/custom_textField.dart';
 
@@ -12,10 +14,23 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  final AuthMethod _authMethod = AuthMethod();
+
+  loginUser() async {
+    bool res = await _authMethod.loginUser(
+      context,
+      _emailController.text,
+      _passwordController.text,
+    );
+    if (res) {
+      Navigator.of(context).pushReplacementNamed(HomeScreen.routeName);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    final TextEditingController _emailController = TextEditingController();
-    final TextEditingController _passwordController = TextEditingController();
     final size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
@@ -71,7 +86,7 @@ class _LoginScreenState extends State<LoginScreen> {
               const SizedBox(
                 height: 10,
               ),
-              CustomButton(function: () {}, text: 'Login'),
+              CustomButton(function: loginUser, text: 'Login'),
             ],
           ),
         ),
