@@ -1,17 +1,17 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:live_stream_app/provider/user_provider.dart';
-import 'package:live_stream_app/resources/auth_mehtod.dart';
-import 'package:live_stream_app/screens/home_screen.dart';
-import 'package:live_stream_app/widgets/loading_indicator.dart';
+import './provider/user_provider.dart';
+import './resources/auth_mehtod.dart';
+import './screens/home_screen.dart';
+import './widgets/loading_indicator.dart';
 import 'package:provider/provider.dart';
-import '../screens/login_screen.dart';
-import '../utils/colors.dart';
+import './screens/login_screen.dart';
+import './utils/colors.dart';
 
-import '../screens/onboarding_screen.dart';
-import '../screens/signup_screen.dart';
-import '../models/user.dart' as model;
+import './screens/onboarding_screen.dart';
+import './screens/signup_screen.dart';
+import './models/user.dart' as model;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
