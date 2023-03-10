@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:live_stream_app/Responsive/responsive.dart';
 import 'package:live_stream_app/resources/auth_mehtod.dart';
 import 'package:live_stream_app/screens/home_screen.dart';
 import 'package:live_stream_app/widgets/custom_button.dart';
@@ -60,69 +61,71 @@ class _SignupScreenState extends State<SignupScreen> {
       ),
       body: _isLoading
           ? const LoadingIndicator()
-          : SingleChildScrollView(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 18.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SizedBox(height: size.height * 0.1),
-                    const Text(
-                      'Email',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
+          : Responsive(
+              child: SingleChildScrollView(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 18.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      SizedBox(height: size.height * 0.1),
+                      const Text(
+                        'Email',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(
-                        vertical: 8.0,
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                          vertical: 8.0,
+                        ),
+                        child: CustomTextField(
+                          text: 'Email',
+                          controller: _emailController,
+                        ),
                       ),
-                      child: CustomTextField(
-                        text: 'Email',
-                        controller: _emailController,
+                      const SizedBox(
+                        height: 10,
                       ),
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    const Text(
-                      'Username',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
+                      const Text(
+                        'Username',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(
-                        vertical: 8.0,
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                          vertical: 8.0,
+                        ),
+                        child: CustomTextField(
+                          text: 'Username',
+                          controller: _usernameController,
+                        ),
                       ),
-                      child: CustomTextField(
-                        text: 'Username',
-                        controller: _usernameController,
+                      const SizedBox(
+                        height: 10,
                       ),
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    const Text(
-                      'Password',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
+                      const Text(
+                        'Password',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(
-                        vertical: 8.0,
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                          vertical: 8.0,
+                        ),
+                        child: CustomTextField(
+                          text: 'Password',
+                          controller: _passwordController,
+                        ),
                       ),
-                      child: CustomTextField(
-                        text: 'Password',
-                        controller: _passwordController,
+                      const SizedBox(
+                        height: 10,
                       ),
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    CustomButton(function: signUpUser, text: 'Sign Up'),
-                  ],
+                      CustomButton(function: signUpUser, text: 'Sign Up'),
+                    ],
+                  ),
                 ),
               ),
             ),
